@@ -1,25 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Geopackage } from "./Geopackage";
+import { MapContainer, TileLayer } from "react-leaflet";
 
-function App() {
+export default function App() {
+  // const crs = new window.L.Proj.CRS('EPSG4326', )
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MapContainer center={[45, 15]} zoom={3}>
+      <Geopackage />
+      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />{" "}
+    </MapContainer>
   );
 }
-
-export default App;
